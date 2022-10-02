@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <!-- fa-fa Icon  -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- fa-fas Icon  -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Material Icon  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font  -->
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) {
+                delta /= 2;
+            }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function() {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function() {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite {color:rgb(255, 0, 128);}";
+            document.body.appendChild(css);
+        };
+    </script>
+
+    <title>Raj Developer Profile</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: alata;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .navbar {
+            background-color: rgb(255, 0, 128);
+        }
+        
+        .nav-link {
+            color: white;
+        }
+        
+        .top_image {
+            height: 88.5vh;
+            width: 100%;
+            /* background: linear-gradient(gray, black); */
+            background-color: black;
+        }
+        
+        .top_image img {
+            height: 88.5vh;
+            width: auto;
+            float: right;
+        }
+        
+        .intro {
+            margin: 15% auto;
+        }
+        
+        h2 span {
+            color: rgb(255, 0, 128);
+            font-size: 40px;
+        }
+        
+        .hire {
+            background-color: rgb(255, 0, 128);
+            border: 2px solid white;
+            padding: 8px 20px;
+            transition: .3s;
+        }
+        
+        .hire:hover {
+            background-color: transparent;
+            border: 2px solid rgb(255, 0, 128);
+        }
+        
+        #contact {
+            height: 100vh auto;
+            width: 100%;
+        }
+        
+        .cont p {
+            color: rgb(255, 0, 128);
+        }
+        
+        .btn-default {
+            background-color: rgb(255, 0, 128);
+            border: 2px solid black;
+            color: white;
+        }
+        
+        #name {
+            height: auto;
+            width: 49.5%;
+        }
+        
+        #mobile {
+            height: auto;
+            width: 49.5%;
+        }
+        
+        p {
+            text-align: justify;
+        }
+        
+        #skills {
+            height: 100vh auto;
+            width: 100%;
+        }
+        
+        .web {
+            height: 10px;
+            width: 100%;
+            background-color: rgb(220, 220, 220);
+            border-radius: 100px;
+            margin-top: 10px;
+        }
+        
+        .website {
+            margin-bottom: 10px;
+        }
+        
+        .website span {
+            margin-right: 10px;
+        }
+        
+        .develop {
+            height: 10px;
+            width: 70%;
+            background-color: rgb(255, 0, 128);
+            border-radius: 100px;
+        }
+        
+        .design {
+            height: 10px;
+            width: 80%;
+            background-color: rgb(255, 0, 128);
+            border-radius: 100px;
+        }
+        
+        .photo {
+            height: 10px;
+            width: 60%;
+            background-color: rgb(255, 0, 128);
+            border-radius: 100px;
+        }
+        
+        .video {
+            height: 10px;
+            width: 60%;
+            background-color: rgb(255, 0, 128);
+            border-radius: 100px;
+        }
+        
+        .app {
+            height: 10px;
+            width: 10%;
+            background-color: rgb(255, 0, 128);
+            border-radius: 100px;
+        }
+        
+        footer a {
+            color: rgb(255, 0, 128);
+        }
+        
+        .ico {
+            margin-left: 20px;
+            font-size: 45px;
+            display: inline;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ico i {
+            color: rgb(255, 0, 128);
+            height: 10vh;
+            width: 5%;
+            text-shadow: 0 0 10px black;
+        }
+        
+        .name {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        
+        .wrap {
+            border-right: 2px solid white;
+        }
+        
+        .last_ico {
+            margin: 1em 0px 1em 0px;
+            text-align: center;
+        }
+        
+        .last_ico a {
+            margin-left: 10px;
+            font-size: 20px;
+            height: 36px;
+            width: 36px;
+            text-align: center;
+            box-shadow: 0 0 10px black;
+            transition: .3s;
+        }
+        
+        .last_ico a:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+
+</head>
+
+<body class=" bg-light">
+
+    <nav id="nav" class="navbar navbar-expand-sm navbar-dark sticky-top p-0 shadow-lg">
+        <div class="container-fluid img-responsive">
+            <h1 class="text-light p-2">
+                Raj
+            </h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div id="home" class="row">
+            <div class="top_image img-responsive">
+                <img class=" img-responsive" src="Rajj.png" alt="">
+                <div class="intro text-light">
+                    <h3>
+                        Hello This Is
+                    </h3>
+                    <h1 class=" display-3">
+                        Raj Kumar
+                    </h1>
+                    <div class="typed">
+                        <h1 class="m-0">
+                            And I'm a
+                            <span class="typewrite" data-period="2000" data-type='[ "Web Developer","Web Designer", "Photo Editor","Video Editor","App Developer." ]'>
+                                <span class="wrap"></span>
+                            </span>
+                        </h1>
+                    </div>
+                    <a class="btn btn-primary mt-3 hire shadow" href="#contact">Hire Me</a>
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="row px-5 py-3">
+            <div class="cont text-center">
+                <h1>
+                    Contact Me
+                </h1>
+                <p class="text-center">
+                    --Get In Touch--
+                </p>
+            </div>
+            <div class="col-md-6 px-5">
+                <div class="left">
+                    <h4>
+                        Get in touch
+                    </h4>
+                    <p class="">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis maxime, dolore voluptas deleniti numquam provident, animi quae quod vel, quasi amet voluptatibus cupiditate nobis asperiores. Officia sunt mollitia ex esse?
+                    </p>
+                    <div class="ico ">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="name">
+                        <span>Name</span><br>
+                        <span>Raj Kumar</span>
+                    </div><br>
+                    <div class="ico ">
+                        <i class="	fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="name">
+                        <span>Address</span><br>
+                        <span>Dudahi</span>
+                    </div><br>
+                    <div class="ico ">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="name">
+                        <span>Email</span><br>
+                        <span>rajkumarsharma705214@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class=" ">
+                    <h4 class="m-0">
+                        Massage
+                    </h4>
+                    <form method="POST" action="insert.php">
+                        <div class="form-group px-2">
+                            <input type="text" name="name" id="name" class="form-control mt-3 float-start" placeholder="Name">
+                            <input type="number" name="mobile" id="mobile" class="form-control my-3  float-end" placeholder="Mobile">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                            <input type="text" name="subject" id="subject" class="form-control mt-3" placeholder="Subject">
+                            <textarea name="massage" id="massage" class=" form-control mt-3" placeholder="Massage"></textarea>
+                            <div class="sub text-center">
+                                <button class="btn btn-default w-50 mt-5 shadow">
+                                    Send Massage
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="skills" class="row px-5 py-3">
+            <div class="cont text-center">
+                <h1>
+                    My Skills
+                </h1>
+                <p class=" text-center">
+                    --What i know--
+                </p>
+            </div>
+            <div class="col-md-6 px-5">
+                <div class="left">
+                    <h4>
+                        My Creative Skills & Experiences.
+                    </h4>
+                    <p class=" text-justify">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum eos, quisquam officia architecto id delectus pariatur accusamus quam deleniti saepe provident reprehenderit corrupti molestias. Recusandae officiis laudantium nostrum voluptates.
+                    </p>
+                    <a href="https://www.facebook.com/profile.php?id=100008727841677" class="btn btn-default px-4 my-5 float-end">
+                        Visit My Facebook
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 px-5">
+                <div class="website">
+                    <span class="m-2">
+                        Website Development
+                    </span>
+                    <span class="float-end">
+                        70%
+                    </span>
+                    <div class="web">
+                        <div class="develop"></div>
+                    </div>
+                </div>
+                <div class="website">
+                    <span class="m-2">
+                        Website Designing
+                    </span>
+                    <span class="float-end">
+                        80%
+                    </span>
+                    <div class="web">
+                        <div class="design"></div>
+                    </div>
+                </div>
+                <div class="website">
+                    <span class="m-2">
+                        Photo Editing(Adobe Photoshop)
+                    </span>
+                    <span class="float-end">
+                        60%
+                    </span>
+                    <div class="web">
+                        <div class="photo"></div>
+                    </div>
+                </div>
+                <div class="website">
+                    <span class="m-2">
+                        Video Editing(Adobe After Effect/Filmora)
+                    </span>
+                    <span class="float-end">
+                        60%
+                    </span>
+                    <div class="web">
+                        <div class="video"></div>
+                    </div>
+                </div>
+                <div class="website">
+                    <span class="m-2">
+                        App Development
+                    </span>
+                    <span class="float-end">
+                        10%
+                    </span>
+                    <div class="web">
+                        <div class="app"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <footer class=" mt-5 bg-black p-3">
+                <p class=" text-light d-inline">
+                    Develop & Design By <a class="raj" href="Raj_Developer.html">Raj Developer</a>| ©2022 All rights reserved.
+                </p>
+                <div class="last_ico d-inline float-end">
+                    <a href="https://www.facebook.com/profile.php?id=100008727841677" class=" fa fa-facebook  p-2 text-light bg-primary rounded"></a>
+                    <a href="https://wa.me/7052141220" class=" fa fa-whatsapp  p-2 text-success bg-light rounded"></a>
+                    <a href="https://www.instagram.com/raj_kumar_g/" class=" fa fa-instagram  p-2 text-light bg-danger rounded"></a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>
