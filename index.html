@@ -17,13 +17,22 @@
     <!-- fa-fas Icon  -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
+      <!-- Bootstrap Icon  -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
     <!-- Material Icon  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Font  -->
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
-    <!-- <script src="script.js"></script> -->
+    
+    <!-- AOS animation Link -->
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <script>
         var TxtType = function(el, toRotate, period) {
             this.toRotate = toRotate;
@@ -77,12 +86,19 @@
                     new TxtType(elements[i], JSON.parse(toRotate), period);
                 }
             }
-            // INJECT CSS
+
             var css = document.createElement("style");
             css.type = "text/css";
             css.innerHTML = ".typewrite {color:rgb(255, 0, 128);}";
             document.body.appendChild(css);
         };
+
+        // Dark Mode 
+
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
     </script>
 
     <title>Raj Developer Profile</title>
@@ -94,23 +110,43 @@
             font-family: alata;
         }
         
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        
         a {
             text-decoration: none;
         }
         
         .navbar {
-            background-color: rgb(255, 0, 128);
+            background-color: #0d6efd;
         }
         
         .nav-link {
             color: white;
         }
         
-        .top_image {
+        #home video {
             height: 88.5vh;
             width: 100%;
-            /* background: linear-gradient(gray, black); */
+        }
+        
+        .top_image {
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+        }
+        
+        .top_line {
+            height: 2px;
             background-color: black;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        #home {
+            position: relative;
         }
         
         .top_image img {
@@ -124,20 +160,21 @@
         }
         
         h2 span {
-            color: rgb(255, 0, 128);
+            color: #0d6efd;
             font-size: 40px;
         }
         
         .hire {
-            background-color: rgb(255, 0, 128);
-            border: 2px solid white;
+            color: white;
+            background-color: #0d6efd;
             padding: 8px 20px;
             transition: .3s;
         }
         
         .hire:hover {
+            color: #0d6efd;
             background-color: transparent;
-            border: 2px solid rgb(255, 0, 128);
+            border: 2px solid #0d6efd;
         }
         
         #contact {
@@ -146,11 +183,11 @@
         }
         
         .cont p {
-            color: rgb(255, 0, 128);
+            color: #0d6efd;
         }
         
         .btn-default {
-            background-color: rgb(255, 0, 128);
+            background-color: #0d6efd;
             border: 2px solid black;
             color: white;
         }
@@ -192,41 +229,47 @@
         
         .develop {
             height: 10px;
-            width: 70%;
-            background-color: rgb(255, 0, 128);
+            width: 90%;
+            background-color: #0d6efd;
             border-radius: 100px;
         }
         
         .design {
             height: 10px;
             width: 80%;
-            background-color: rgb(255, 0, 128);
+            background-color: #0d6efd;
             border-radius: 100px;
         }
         
         .photo {
             height: 10px;
             width: 60%;
-            background-color: rgb(255, 0, 128);
+            background-color: #0d6efd;
             border-radius: 100px;
         }
         
         .video {
             height: 10px;
-            width: 60%;
-            background-color: rgb(255, 0, 128);
+            width: 80%;
+            background-color: #0d6efd;
             border-radius: 100px;
         }
         
         .app {
             height: 10px;
-            width: 10%;
-            background-color: rgb(255, 0, 128);
+            width: 50%;
+            background-color: #0d6efd;
             border-radius: 100px;
         }
         
-        footer a {
-            color: rgb(255, 0, 128);
+        .raj {
+            color: yellow;
+            transition: .3s;
+        }
+        
+        .raj:hover {
+            margin-left: 10px;
+            color: #0d6efd;
         }
         
         .ico {
@@ -238,10 +281,9 @@
         }
         
         .ico i {
-            color: rgb(255, 0, 128);
+            color: #0d6efd;
             height: 10vh;
             width: 5%;
-            text-shadow: 0 0 10px black;
         }
         
         .name {
@@ -271,17 +313,91 @@
         .last_ico a:hover {
             transform: rotate(360deg);
         }
+
+        .round_pic {
+            height: auto;
+            width: 80%;
+            border: 2px solid #0d6efd;
+        }
+
+        .round_pic img {
+            height: 7em;
+            width: auto;
+            border-radius: 100%;
+        }
+
+        .web_development {
+            height: auto;
+            width: 100%;
+        }
+
+        .card {
+            overflow: hidden;
+        }
+
+        .card img {
+            height: 8em;
+            width: auto;
+            transition: .3s;
+        }
+
+        .card img:hover {
+            -ms-transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+        .card span {
+            font-size: 2em;
+        }
+
+        .animate-left {
+            position: relative;
+            animation: move1 3s;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+        }
+        
+        @keyframes move1 {
+            from {
+                left: -500px;
+                opacity: 0;
+            }
+            to {
+                left: 0px;
+                opacity: 1;
+            }
+        }
+
+        .animate-right {
+            position: relative;
+            animation: move2 3s;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+        }
+        
+        @keyframes move2 {
+            from {
+                right: -500px;
+                opacity: 0;
+            }
+            to {
+                right: 0px;
+                opacity: 1;
+            }
+        }
     </style>
 
 </head>
 
-<body class=" bg-light">
+<body>
 
-    <nav id="nav" class="navbar navbar-expand-sm navbar-dark sticky-top p-0 shadow-lg">
-        <div class="container-fluid img-responsive">
-            <h1 class="text-light p-2">
+    <nav id="nav" class="navbar navbar-expand-sm  sticky-top p-0 shadow-lg">
+        <div class="container-fluid">
+            <h1 class="text-light p-2 ">
                 Raj
             </h1>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -299,15 +415,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+                    <button class="btn btn-default" onclick="myFunction()">
+                        <i class="fas fa-moon mx-1"></i>Change Theme
+                        </button>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
-        <div id="home" class="row">
-            <div class="top_image img-responsive">
-                <img class=" img-responsive" src="Rajj.png" alt="">
-                <div class="intro text-light">
+        <div id="home" class="row ">
+            <video class="back_video" src="" muted autoplay loop></video>
+            <div class="top_image img-responsive img-fluid">
+                <img class=" img-responsive animate-right img-fluid" src="Rajj.png" alt="">
+                <div class="intro animate-left">
                     <h3>
                         Hello This Is
                     </h3>
@@ -317,14 +437,15 @@
                     <div class="typed">
                         <h1 class="m-0">
                             And I'm a
-                            <span class="typewrite" data-period="2000" data-type='[ "Web Developer","Web Designer", "Photo Editor","Video Editor","App Developer." ]'>
+                            <span class="typewrite" data-period="2000" data-type='[ "Web Developer","Web Designer", "Photo Editor","Video Editor" ]'>
                                 <span class="wrap"></span>
                             </span>
                         </h1>
                     </div>
-                    <a class="btn btn-primary mt-3 hire shadow" href="#contact">Hire Me</a>
+                    <a class="btn btn-primary mt-3 hire shadow" href="tel:+917052141220">Hire Me on Call</a>
                 </div>
             </div>
+            <hr class="top_line">
         </div>
         <div id="contact" class="row px-5 py-3">
             <div class="cont text-center">
@@ -335,8 +456,8 @@
                     --Get In Touch--
                 </p>
             </div>
-            <div class="col-md-6 px-5">
-                <div class="left">
+            <div class="col-md-6 px-5 ">
+                <div class="left" data-aos="slide-right">
                     <h4>
                         Get in touch
                     </h4>
@@ -344,21 +465,21 @@
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis maxime, dolore voluptas deleniti numquam provident, animi quae quod vel, quasi amet voluptatibus cupiditate nobis asperiores. Officia sunt mollitia ex esse?
                     </p>
                     <div class="ico ">
-                        <i class="fas fa-user"></i>
+                        <i class="bi bi-person"></i>
                     </div>
                     <div class="name">
                         <span>Name</span><br>
                         <span>Raj Kumar</span>
                     </div><br>
                     <div class="ico ">
-                        <i class="	fas fa-map-marker-alt"></i>
+                        <i class="bi bi-geo-alt"></i>
                     </div>
                     <div class="name">
                         <span>Address</span><br>
                         <span>Dudahi</span>
                     </div><br>
                     <div class="ico ">
-                        <i class="fas fa-envelope"></i>
+                        <i class="bi bi-envelope"></i>
                     </div>
                     <div class="name">
                         <span>Email</span><br>
@@ -367,16 +488,16 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class=" ">
-                    <h4 class="m-0">
+                <div data-aos="slide-up">
+                    <h4 class="m-0"> 
                         Massage
                     </h4>
                     <form method="POST" action="insert.php">
                         <div class="form-group px-2">
-                            <input type="text" name="name" id="name" class="form-control mt-3 float-start" placeholder="Name">
-                            <input type="number" name="mobile" id="mobile" class="form-control my-3  float-end" placeholder="Mobile">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-                            <input type="text" name="subject" id="subject" class="form-control mt-3" placeholder="Subject">
+                            <input type="text" name="name" id="name" class="form-control mt-3 float-start" placeholder="Name" required>
+                            <input type="number" name="mobile" id="mobile" class="form-control my-3  float-end" placeholder="Mobile" required>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                            <input type="text" name="subject" id="subject" class="form-control mt-3" placeholder="Subject" required>
                             <textarea name="massage" id="massage" class=" form-control mt-3" placeholder="Massage"></textarea>
                             <div class="sub text-center">
                                 <button class="btn btn-default w-50 mt-5 shadow">
@@ -386,6 +507,15 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row d-flex justify-content-center my-2" data-aos="zoom-in">
+            <div class="round_pic text-center p-2 rounded shadow">
+                <img src="https://lh3.googleusercontent.com/pw/AIL4fc_vAZT_sdcCbrY8kb-1JPUsab5e0p9ju4Tw-Z4fwLes_Bd3nHnoZrlwCdRYgxY5BLvUPEjlROQGexkFab8BHbUKaeW_SpN4x3KmaBSYd2dOnesM6OsgOet-m44pWvbNADDHrwnzJN5Y90nBk6Yq1HC15xyCxCSjLsb02i1nNNrH4IqkMQimMphlmAXF2MdZcGkGYDsE3TUGB9LsMwaN8HYORTY0OFjoSLNhJcu7z4XgsHhg6yLtLC6U1K0-cpX83-uIfV4abbRzFuQhYXmR2olAdxv_yA2iKRxMO46vkEz7fdouQTIEe1cu-ulboOkUHAtyr9VxFHb8C2qi6X4yQbVXqlTgKf0RO7IglGkECgXiZBPiK4wKHndYoqydcFS0JUvcmHROtJOhVEJouo_9VFEoSU-tUyzWzMxr3eQFzya3PAC4yzYsAQubV4RX9TQhol1IjHE1jL-0V_tTWofiKxg7DcFL32c3cmlJ5QcSFzx4jS3MLFx35gYBJjtfQH2svM8hOcY8Nfv26zoTbFKOb4ivj9N3B_5gwaY5r62oD5fnojDO12HVYTOGuOuQe2ThkbOnOwM7RRJiDUj_QXsvuBep3HbzCIjAtMONv19Qqb0vUBlxdERkyFUjafXIiVyFWSfvWw4QXdT_SfBh3uG5CCgysWWlBTtK8bkcpJt4Dyq6Mcg8jz1vVVL2ZdcWKoLP-gRsEd9cH-0a8pJCUbqsKCH_uxqZeZmZl2f_ythDYvpIJsSQIyyTZEkxad24t5JRHy10PTb14ObcA344zUpfDCCiwJ698QaLnPx04y5Cp-dg_KZ9iP483mP6e2xJkg0WiGc0n0JcQd-2GG1pVWW7TTJxML62Lb6Dag3ZkDa2hGZpQZXF9HrNEiBjK6HXXW9MQzTz40SOA_E4CyKFZJWxgqxnxqtvJ2NelJDjsRxkKFIli49-F5Ea8huNj6CQ9JhVKblxMg_aiA9_W5yClwoZZtJiQSehJ-i_sv1MbvDNKYldb4EkHPsIxwD7SmATFRJymYSqU-E03HMa09gPHVmPPMnmFKvM9vb4hobv-v4pgwph968yzjL-_K77G_O-nM4gFeIVtrDkjzMC-orbc6e_2tQ6Sd8DODNHoBGMBMXZvm7XTrgFZlKlNTbDXoBcc0PDbyYmsY-7lQ=w620-h619-s-no?authuser=0" alt="">
+                <p class="text-center mt-3">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam sunt nulla tenetur aliquid praesentium numquam, saepe sint culpa, quaerat repellat illum placeat, debitis nihil officiis esse. Possimus voluptatem repudiandae delectus?
+                </p>
             </div>
         </div>
         <hr>
@@ -399,25 +529,25 @@
                 </p>
             </div>
             <div class="col-md-6 px-5">
-                <div class="left">
+                <div class="left"  data-aos="slide-right">
                     <h4>
                         My Creative Skills & Experiences.
                     </h4>
                     <p class=" text-justify">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum eos, quisquam officia architecto id delectus pariatur accusamus quam deleniti saepe provident reprehenderit corrupti molestias. Recusandae officiis laudantium nostrum voluptates.
                     </p>
-                    <a href="https://www.facebook.com/profile.php?id=100008727841677" class="btn btn-default px-4 my-5 float-end">
-                        Visit My Facebook
-                    </a>
+
+                    <a class="btn btn-default my-2" target="_blank" href="https://drive.google.com/file/d/1lMs7WcsjU33LTp_3TwBF0gHMPu-Mjpdy/view?usp=sharing">Freelance</a>
+                    <a class="btn btn-default my-2 float-end" target="_blank" href="https://drive.google.com/file/d/1lMs7WcsjU33LTp_3TwBF0gHMPu-Mjpdy/view?usp=sharing">Download CV</a>
                 </div>
             </div>
-            <div class="col-md-6 px-5">
+            <div class="col-md-6 px-5" data-aos="slide-up">
                 <div class="website">
                     <span class="m-2">
-                        Website Development
+                        Website Development (JavaScript,PHP,MySQL,github)
                     </span>
                     <span class="float-end">
-                        70%
+                        90%
                     </span>
                     <div class="web">
                         <div class="develop"></div>
@@ -425,7 +555,7 @@
                 </div>
                 <div class="website">
                     <span class="m-2">
-                        Website Designing
+                        Website Designing (HTML,CSS,Bootstrap,Javascript)
                     </span>
                     <span class="float-end">
                         80%
@@ -456,33 +586,91 @@
                         <div class="video"></div>
                     </div>
                 </div>
-                <div class="website">
-                    <span class="m-2">
-                        App Development
-                    </span>
-                    <span class="float-end">
-                        10%
-                    </span>
-                    <div class="web">
-                        <div class="app"></div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="web_development">
+                <h1 class="text-center">
+                    Web Development
+                </h1>
+                <div class="row">
+                    <div class="col text-center" data-aos="fade-down-right"  data-aos-duration="500">
+                        <div class="card text-center p-2 my-2">
+                            <img class=" img-fluid" src="https://img.icons8.com/?size=512&id=20909&format=png" alt="">
+                            <span>
+                                HTML
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col text-center" data-aos="fade-down-right"  data-aos-duration="1000">
+                        <div class="card text-center p-2 my-2">
+                            <img class=" img-fluid" src="https://img.icons8.com/?size=512&id=21278&format=png" alt="">
+                            <span>
+                                CSS
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col text-center" data-aos="fade-down-right"  data-aos-duration="1500">
+                        <div class="card text-center p-2 my-2">
+                            <img class=" img-fluid" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="">
+                            <span>
+                                Bootstrap
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col text-center" data-aos="fade-down-right"  data-aos-duration="2000">
+                        <div class="card text-center p-2 my-2">
+                            <img class=" img-fluid" src="https://img.icons8.com/?size=512&id=108784&format=png" alt="">
+                            <span>
+                                JavaScript
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col text-center" data-aos="fade-down-right"  data-aos-duration="2500">
+                        <div class="card text-center p-2 my-2">
+                            <img class=" img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" alt="">
+                            <span>
+                                PHP
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col text-center" data-aos="fade-down-right"  data-aos-duration="3000">
+                        <div class="card text-center p-2 my-2">
+                            <img class=" img-fluid" src="https://img.icons8.com/?size=512&id=UFXRpPFebwa2&format=png" alt="">
+                            <span>
+                                MySQL
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <footer class=" mt-5 bg-black p-3">
+            <footer class=" mt-5 bg-secondary p-3">
                 <p class=" text-light d-inline">
-                    Develop & Design By <a class="raj" href="Raj_Developer.html">Raj Developer</a>| ©2022 All rights reserved.
+                    Develop & Design By <a class="raj" href="index.html">Raj Developer</a>| ©2022 All rights reserved.
                 </p>
                 <div class="last_ico d-inline float-end">
                     <a href="https://www.facebook.com/profile.php?id=100008727841677" class=" fa fa-facebook  p-2 text-light bg-primary rounded"></a>
-                    <a href="https://wa.me/7052141220" class=" fa fa-whatsapp  p-2 text-success bg-light rounded"></a>
+                    <a href="https://wa.me/7052141220" class=" fa fa-whatsapp  p-2 text-light bg-success rounded"></a>
                     <a href="https://www.instagram.com/raj_kumar_g/" class=" fa fa-instagram  p-2 text-light bg-danger rounded"></a>
+                    <a href="https://www.linkedin.com/in/rajkumar-sharma-411a44248" class=" fa fa-linkedin  p-2 text-light bg-primary rounded"></a>
+                    <a href="https://github.com/rajkumardevl" class="fa fa-github  p-2 text-light bg-dark rounded"></a>
                 </div>
             </footer>
         </div>
     </div>
-
+    <!-- AOS animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+            offset: 250,
+            duration: 1000,
+        }
+      );
+    </script>
 </body>
 
 </html>
